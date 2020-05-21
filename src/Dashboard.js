@@ -6,6 +6,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
 	width: '20%'
+  },
+  textField: {
+  	width: '100%'
   }
 }));
 
@@ -75,10 +80,18 @@ export default function AppPaper() {
 			</div>
 			<div className={classes.flex}>
 				<div className={classes.chatBox}>
-
+					<TextField 
+						label="Type Your Message Here..." 
+						className={classes.textField}
+						// onChange={handleChange('name')}
+						// value={values.name}
+					/>
 				</div>				
 				<div className={classes.button}>
 
+					<Button variant="contained" color="primary">
+					  Submit
+					</Button>
 				</div>
 			</div>
 
