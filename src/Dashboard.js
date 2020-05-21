@@ -4,9 +4,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
   	padding: theme.spacing(3,2),
@@ -14,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
 }));
+
 
 export default function SimplePaper() {
   const classes = useStyles();
