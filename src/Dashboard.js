@@ -8,12 +8,28 @@ const useStyles = makeStyles((theme) => ({
   root: {
   	padding: theme.spacing(3,2),
   	margin: '50px',
-
   },
+  flex: {
+  	display: 'flex'
+  },
+  topicsWindow: {
+  	width: '30%',
+  	height: '300px'
+  },
+  chatWindow: {
+	width: '70%',
+	height: '300px'
+  },
+  chatBox: {
+	width: '80%'
+  },
+  button: {
+	width: '20%'
+  }
 }));
 
 
-export default function SimplePaper() {
+export default function AppPaper() {
   const classes = useStyles();
 
   return (
@@ -25,6 +41,26 @@ export default function SimplePaper() {
 			<Typography variant="p">
 				An Interactive Chat app using React.js, Socket.io, and Express.  <br/>Styled with Material-UI.
 			</Typography>
+			<Typography variant="p">
+				<br/>Topic Placeholder
+			</Typography>
+			<div className={classes.flex}>
+				<div className={classes.topicsWindow}>
+
+				</div>				
+				<div className={classes.chatWindow}>
+
+				</div>
+			</div>
+			<div className={classes.flex}>
+				<div className={classes.chatBox}>
+
+				</div>				
+				<div className={classes.button}>
+
+				</div>
+			</div>
+
 		</Paper>
     </div>
   );
