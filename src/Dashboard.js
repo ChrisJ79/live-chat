@@ -44,6 +44,8 @@ const useStyles = makeStyles((theme) => ({
 export default function AppPaper() {
   const classes = useStyles();
 
+  const [textValue, changeTextValue] = React.useState('');
+
   return (
     <div>
 		<Paper elevation={3} className={classes.root}>
@@ -83,8 +85,8 @@ export default function AppPaper() {
 					<TextField 
 						label="Type Your Message Here..." 
 						className={classes.textField}
-						// onChange={handleChange('name')}
-						// value={values.name}
+						onChange={e => changeTextValue(e.target.value)}
+						value={textValue}
 					/>
 				</div>				
 				<div className={classes.button}>
