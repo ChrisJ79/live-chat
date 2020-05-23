@@ -25,12 +25,12 @@ state {
 */
 
 const initState = {
-	general: [
+	General: [
 		{from: 'user', msg: 'hi'},
 		{from: 'user', msg: 'hi'},
 		{from: 'user', msg: 'hi'}
 	],
-	topic2: [
+	Topic2: [
 		{from: 'user', msg: 'hi'},
 		{from: 'user', msg: 'hi'},
 		{from: 'user', msg: 'hi'}
@@ -66,3 +66,7 @@ export default function Store(props) {
 		</CTX.Provider>
 	)
 }
+
+
+
+

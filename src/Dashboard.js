@@ -1,4 +1,5 @@
 import React from 'react';
+import { CTX } from './Store';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -42,64 +43,79 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function AppPaper() {
-  const classes = useStyles();
+	const classes = useStyles();
 
-  const [textValue, changeTextValue] = React.useState('');
+  // CTX Store
+ 	const [allChats] = React.useContext(CTX);
 
-  return (
-    <div>
-		<Paper elevation={3} className={classes.root}>
-			<Typography variant="h2" component="h2">
-				Chat App
-			</Typography>			
-			<Typography variant="p">
-				An Interactive Chat app using React.js, Socket.io, and Express.  <br/>Styled with Material-UI.
-			</Typography>
-			<div className={classes.flex}>
-				<div className={classes.topicsWindow}>
-					<list>
+ 	console.log({allChats});
+
+	const topics = Object.keys(allChats);
+
+	// Local State
+
+ 	const [activeTopic, changeActiveTopic] = React.useState(topics[0]);
+ 	const [textValue, changeTextValue] = React.useState('');
+
+	return (
+		<div>
+			<Paper elevation={3} className={classes.root}>
+				<Typography variant="h2" component="h2">
+					Chat App
+				</Typography>			
+				<Typography variant="p">
+					An Interactive Chat app using React.js, Socket.io, and Express.  <br/>Styled with Material-UI.
+				</Typography>
+				<br/>				
+				<hr/>				
+				<Typography variant="h4">
+					{activeTopic}
+				</Typography>
+				<div className={classes.flex}>
+					<div className={classes.topicsWindow}>
+						<list>
+							{
+								topics.map(topic => (
+						        	<ListItem onClick={e => changeActiveTopic(e.target.innerText)}key={topic} button>
+										<ListItemText primary={topic} />          	
+									</ListItem>
+								))
+							}
+						</list>	
+					</div>				
+					<div className={classes.chatWindow}>
 						{
-							['topic'].map(topic => (
-					        	<ListItem key={topic} button>
-									<ListItemText primary="Topic" />          	
-								</ListItem>
+							[{from: 'user', msg: 'hello'}].map((chat, i) => (
+					        	<div className={classes.flex} key={i}>
+					        		<Chip label={chat.from} className={classes.chip} />
+		    							<Typography variant="p">
+											{chat.msg}
+										</Typography>
+					        	</div>
 							))
 						}
-					</list>	
-				</div>				
-				<div className={classes.chatWindow}>
-					{
-						[{from: 'user', msg: 'hello'}].map((chat, i) => (
-				        	<div className={classes.flex} key={i}>
-				        		<Chip label={chat.from} className={classes.chip} />
-	    							<Typography variant="p">
-										{chat.msg}
-									</Typography>
-				        	</div>
-						))
-					}
+					</div>
 				</div>
-			</div>
-			<div className={classes.flex}>
-				<div className={classes.chatBox}>
-					<TextField 
-						label="Type Your Message Here..." 
-						className={classes.textField}
-						onChange={e => changeTextValue(e.target.value)}
-						value={textValue}
-					/>
-				</div>				
-				<div className={classes.button}>
+				<div className={classes.flex}>
+					<div className={classes.chatBox}>
+						<TextField 
+							label="Type Your Message Here..." 
+							className={classes.textField}
+							onChange={e => changeTextValue(e.target.value)}
+							value={textValue}
+						/>
+					</div>				
+					<div className={classes.button}>
 
-					<Button variant="contained" color="primary">
-					  Submit
-					</Button>
+						<Button variant="contained" color="primary">
+						  Submit
+						</Button>
+					</div>
 				</div>
-			</div>
 
-		</Paper>
-    </div>
-  );
+			</Paper>
+		</div>
+	);
 }
 
 
