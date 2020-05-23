@@ -53,7 +53,6 @@ export default function AppPaper() {
 	const topics = Object.keys(allChats);
 
 	// Local State
-
  	const [activeTopic, changeActiveTopic] = React.useState(topics[0]);
  	const [textValue, changeTextValue] = React.useState('');
 
