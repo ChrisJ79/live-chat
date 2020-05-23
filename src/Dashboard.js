@@ -46,7 +46,7 @@ export default function AppPaper() {
 	const classes = useStyles();
 
   // CTX Store
- 	const [allChats] = React.useContext(CTX);
+ 	const {allChats, sendChatAction, user} = React.useContext(CTX);
 
  	console.log({allChats});
 
@@ -106,7 +106,15 @@ export default function AppPaper() {
 					</div>				
 					<div className={classes.button}>
 
-						<Button variant="contained" color="primary">
+						<Button 
+							variant="contained" 
+							color="primary"
+							onClick={()=> {
+								sendChatAction({from: user, msg: textValue, topic: activeTopic
+							});
+								changeTextValue('');
+							}}
+						>
 						  Submit
 						</Button>
 					</div>
