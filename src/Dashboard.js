@@ -52,7 +52,7 @@ export default function AppPaper() {
 
 	const topics = Object.keys(allChats);
 
-	// Local State
+	// Local State 
  	const [activeTopic, changeActiveTopic] = React.useState(topics[0]);
  	const [textValue, changeTextValue] = React.useState('');
 
@@ -84,7 +84,7 @@ export default function AppPaper() {
 					</div>				
 					<div className={classes.chatWindow}>
 						{
-							[{from: 'user', msg: 'hello'}].map((chat, i) => (
+							allChats[activeTopic].map((chat, i) => (
 					        	<div className={classes.flex} key={i}>
 					        		<Chip label={chat.from} className={classes.chip} />
 		    							<Typography variant="p">

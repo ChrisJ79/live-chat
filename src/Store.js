@@ -26,14 +26,14 @@ state {
 
 const initState = {
 	General: [
-		{from: 'user', msg: 'hi'},
-		{from: 'user', msg: 'hi'},
-		{from: 'user', msg: 'hi'}
+		{from: 'chris', msg: 'hi'},
+		{from: 'steve', msg: 'hi'},
+		{from: 'john', msg: 'hi'}
 	],
 	Topic2: [
-		{from: 'user', msg: 'hi'},
-		{from: 'user', msg: 'hi'},
-		{from: 'user', msg: 'hi'}
+		{from: 'mike', msg: 'hi'},
+		{from: 'cleetus', msg: 'hi'},
+		{from: 'jesus', msg: 'hi'}
 	]
 }
 
